@@ -8,19 +8,19 @@
 
 typedef struct
 {
-    int *data;
-    int size;
-    int capacity;
+    int *data;   //数组的首地址
+    int size;    //数组的大小
+    int capacity;//数组的容量
 } Array;
 
-void initArray(Array *arr, int capacity)
+void initArray(Array *arr, int capacity)//初始化数组
 {
     arr->data = (int *)malloc(capacity * sizeof(int));
     arr->size = 0;
     arr->capacity = capacity;
 }
 
-void insertArray(Array *arr, int index, int value)
+void insertArray(Array *arr, int index, int value)//插入元素
 {
     if (index < 0 || index > arr->size)
     {

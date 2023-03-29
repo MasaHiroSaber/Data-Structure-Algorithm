@@ -3,5 +3,6 @@ project(Data_structure_and_algorithm_foundation)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Data_structure_and_algorithm_foundation main.cpp)
-add_executable(Dynamically_expanding_array Array/Dynamically_expanding_array.cpp)
+add_executable(Data_structure_and_algorithm_foundation Array/DynamicallyExpandingArray.cpp)
+add_executable(DynamicallyExpandingArray Array/DynamicallyExpandingArray.cpp)
+add_executable(ControllerOrderArray Array/ControllerOrderArray.cpp)

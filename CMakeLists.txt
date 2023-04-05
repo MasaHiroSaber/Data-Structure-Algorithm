@@ -4,5 +4,5 @@ project(Data_structure_and_algorithm_foundation)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(Data_structure_and_algorithm_foundation Array/DynamicallyExpandingArray.cpp)
-add_executable(DynamicallyExpandingArray Array/DynamicallyExpandingArray.cpp)
-add_executable(ControllerOrderArray Array/ControllerOrderArray.cpp)
+add_executable(Array Array/DynamicallyExpandingArray.cpp Array/ControllerOrderArray.cpp Array/MergingArrays.cpp)
+add_executable(LinkedList LinkedList/LinkedList.cpp LinkedList/DoubleLinkedList.cpp)

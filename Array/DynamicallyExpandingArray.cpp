@@ -1,30 +1,30 @@
 //
-// Created by MasaHiroSaber on 2023/3/29.
+// Created by Masa HiroSaber on 2023/3/29.
 //
 
-//å¯åŠ¨æ€æ‰©å±•çš„æ•°ç»„
+//¿É¶¯Ì¬À©Õ¹µÄÊı×é
 #include <stdio.h>
 #include "stdlib.h"
 
 typedef struct
 {
-    int *data;   //æ•°ç»„çš„é¦–åœ°å€
-    int size;    //æ•°ç»„çš„å¤§å°
-    int capacity;//æ•°ç»„çš„å®¹é‡
+    int *data;   //Êı×éµÄÊ×µØÖ·
+    int size;    //Êı×éµÄ´óĞ¡
+    int capacity;//Êı×éµÄÈİÁ¿
 } Array;
 
-void initArray(Array *arr, int capacity)//åˆå§‹åŒ–æ•°ç»„
+void initArray(Array *arr, int capacity)//³õÊ¼»¯Êı×é
 {
     arr->data = (int *)malloc(capacity * sizeof(int));
     arr->size = 0;
     arr->capacity = capacity;
 }
 
-void insertArray(Array *arr, int index, int value)//æ’å…¥å…ƒç´ 
+void insertArray(Array *arr, int index, int value)//²åÈëÔªËØ
 {
     if (index < 0 || index > arr->size)
     {
-        printf("æ’å…¥ä½ç½®ä¸åˆæ³•");
+        printf("²åÈëÎ»ÖÃ²»ºÏ·¨");
         return;
     }
     if (arr->size == arr->capacity)
@@ -44,7 +44,7 @@ void deleteArray(Array *arr, int index)
 {
     if (index < 0 || index >= arr->size)
     {
-        printf("åˆ é™¤ä½ç½®ä¸åˆæ³•");
+        printf("É¾³ıÎ»ÖÃ²»ºÏ·¨");
         return;
     }
     for (int i = index + 1; i < arr->size; i++)

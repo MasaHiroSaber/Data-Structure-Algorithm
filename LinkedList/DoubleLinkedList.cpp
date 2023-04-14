@@ -2,6 +2,7 @@
 // Created by MasaHiroSaber on 2023/4/5.
 //
 
+//双链表
 #include "stdio.h"
 #include "stdlib.h"
 #include "time.h"
@@ -11,7 +12,7 @@ typedef struct DuLNode
     int data;
     DuLNode *prior;
     DuLNode *next;
-} DuLNode, *DuLinkedList;
+} DuLNode;
 
 typedef struct DoubleLinkedList
 {     //双链表的结构体
@@ -41,13 +42,6 @@ DoubleLinkedList *CreateDuLinkedList()
     list->length = 0;
     return list;
 }
-
-//void init_list(DoubleLinkedList *list)
-// {
-//    list->head = NULL;
-//    list->tail = NULL;
-//    list->length = 0;
-//}
 
 void InsertHead(DoubleLinkedList *list, int value)
 {    //插入头结点

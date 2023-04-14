@@ -2,17 +2,18 @@
 // Created by MasaHiroSaber on 2023/4/5.
 //
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+//单链表
+#include "stdio.h"
+#include "stdlib.h"
+#include "time.h"
 
-typedef struct Node {
+typedef struct CirNode {
     int data;
-    struct Node *next;
+    struct CirNode *next;
 };
 
-typedef struct LinkedList {
-    struct Node head;
+typedef struct LinkedList { //头结点为哨兵结点，不包含数据
+    struct CirNode head;    //头结点
     int length;
 };
 
@@ -24,35 +25,35 @@ LinkedList *CreateLinkedList() {
     return p;
 }
 
-struct Node *NewNode(int value) {
-    struct Node *p = (Node *) malloc(sizeof(Node));
+struct CirNode *NewNode(int value) {
+    struct CirNode *p = (CirNode *) malloc(sizeof(CirNode));
     if (!p) return NULL;
     p->data = value;
     p->next = NULL;
     return p;
 }
 
-int Insert(LinkedList *linkedlist, int index, int value) {
-    if (!linkedlist)return 0;
-    if (index < 0 || index > linkedlist->length) return 0;
-    Node *p = &(linkedlist->head);
+int Insert(LinkedList *linkedlist, int index, int value) {  //在index位置插入value
+    if (!linkedlist)return 0;   //链表不存在,插入失败,返回0
+    if (index < 0 || index > linkedlist->length) return 0;  //插入位置不合法,插入失败,返回0
+    CirNode *p = &(linkedlist->head);   //p指向头结点,头结点不包含数据
     //head不包含数据
-    Node *newNode = NewNode(value);
+    CirNode *newNode = NewNode(value);  //创建新结点,并赋值
     //找到待插入的位置index
-    while (index--) p = p->next;
-    newNode->next = p->next;
-    p->next = newNode;
-    linkedlist->length++;
+    while (index--) p = p->next;    //p指向index位置的前一个结点
+    newNode->next = p->next;    //新结点的next指向index位置的结点
+    p->next = newNode;  //index位置的前一个结点的next指向新结点
+    linkedlist->length++;   //链表长度加1
     return 1;
 }
 
 int Delete(LinkedList *linkedlist, int index) {
     if (!linkedlist)return 0;
     if (index < 0 || index >= linkedlist->length) return 0;
-    Node *p = &(linkedlist->head);
+    CirNode *p = &(linkedlist->head);
     while (index--) p = p->next;
     //实际删除的节点q
-    Node *q = p->next;
+    CirNode *q = p->next;
     p->next = q->next;
     free(q);
     linkedlist->length--;
@@ -60,7 +61,7 @@ int Delete(LinkedList *linkedlist, int index) {
 }
 
 void Output(LinkedList *linkedlist) {
-    Node *p = linkedlist->head.next;
+    CirNode *p = linkedlist->head.next;
     printf("The LinkedList(%d):", linkedlist->length);
     while (p) {
         printf("%d->", p->data);
@@ -71,7 +72,7 @@ void Output(LinkedList *linkedlist) {
 
 int DestroyLinkedList(LinkedList *linkedlist) {
     if (!linkedlist)return 0;
-    Node *p = linkedlist->head.next;
+    CirNode *p = linkedlist->head.next;
     while (p) {
         linkedlist->head.next = p->next;
         free(p);

@@ -3,8 +3,6 @@
 //
 
 //实现两个有序的链表合并为一个有序链表
-#include "stdio.h"
-#include "stdlib.h"
 
 void MergeLinkedList(LinkedList *list1, LinkedList *list2, LinkedList *list3) {
     Node *p1 = list1->head;
